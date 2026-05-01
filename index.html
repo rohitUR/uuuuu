@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #102a43; /* Deep Professional Blue */
+            --primary: #102a43;
             --primary-light: #243b53;
-            --accent: #f39c12; /* Warm Yellow for Highlights */
+            --accent: #f39c12;
             --accent-light: #fdf2e9;
             --success: #27ae60;
             --danger: #e74c3c;
@@ -22,331 +22,164 @@
             --transition: 0.3s ease;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--light); color: var(--text-main); line-height: 1.7; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--text-dark); }
         a { text-decoration: none; transition: var(--transition); }
-        ul { list-style: none; }
 
         /* Integrated Maintenance Style */
         .maintenance-header {
             background: #e74c3c;
             color: white;
-            padding: 15px;
+            padding: 10px;
             text-align: center;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow-md);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1100;
         }
 
         .hero-dev-tag {
             display: inline-block;
-            background: rgba(231, 76, 60, 0.2);
+            background: rgba(231, 76, 60, 0.1);
             border: 2px solid #e74c3c;
             color: #fff;
-            padding: 10px 30px;
+            padding: 8px 25px;
             border-radius: 10px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 800;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-transform: uppercase;
             animation: blinker 1.5s linear infinite;
         }
 
-        @keyframes blinker {
-            50% { opacity: 0.5; }
-        }
+        @keyframes blinker { 50% { opacity: 0.5; } }
 
-        /* Modern Disclaimer Banner */
-        .disclaimer-banner { background: #fffbe6; color: #d35400; padding: 12px 5%; font-size: 0.85rem; font-weight: 600; text-align: center; border-bottom: 1px solid #ffe58f; position: relative; z-index: 1001; }
+        .disclaimer-banner { background: #fffbe6; color: #d35400; padding: 12px 5%; font-size: 0.85rem; font-weight: 600; text-align: center; border-bottom: 1px solid #ffe58f; }
         
-        /* Premium Navigation */
         nav { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 1000; }
-        .logo-img { height: 60px; transition: transform 0.5s; }
-        .logo-img:hover { transform: rotate(5deg); }
+        .logo-img { height: 60px; }
         .nav-contact { text-align: right; font-size: 0.85rem; color: var(--primary); }
-        .nav-contact b { display: block; font-size: 0.9rem; color: var(--text-dark); }
 
-        /* Elegant Hero Section */
         .hero { padding: 100px 5% 120px; background: linear-gradient(135deg, #102a43, #1e3799); color: white; text-align: center; position: relative; }
         .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; background: var(--light); clip-path: polygon(100% 100%, 0% 100%, 0 0); }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: white; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto 30px; }
-        .hero-btn { display: inline-block; background: var(--accent); color: var(--primary); padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 1rem; box-shadow: var(--shadow-md); }
-        .hero-btn:hover { background: white; transform: translateY(-3px); }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 15px; }
+        .hero-btn { display: inline-block; background: var(--accent); color: var(--primary); padding: 12px 35px; border-radius: 50px; font-weight: 700; box-shadow: var(--shadow-md); cursor: pointer; border: none; }
 
         .container { padding: 40px 5%; max-width: 1200px; margin: auto; position: relative; z-index: 10; }
 
-        /* Features & Info */
-        .info-section { margin-top: -60px; margin-bottom: 60px; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .feature-card { background: var(--white); padding: 30px; border-radius: 20px; box-shadow: var(--shadow-md); border-bottom: 5px solid transparent; transition: var(--transition); text-align: center; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: -60px; margin-bottom: 60px; }
+        .feature-card { background: var(--white); padding: 30px; border-radius: 20px; box-shadow: var(--shadow-md); text-align: center; transition: var(--transition); border-bottom: 5px solid transparent; }
         .feature-card:hover { transform: translateY(-10px); border-bottom-color: var(--accent); }
-        .feature-card .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
-        .feature-card h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); }
-        .feature-card p { font-size: 0.95rem; color: var(--text-main); }
 
-        /* Premium Selection Card */
-        .section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--primary); }
-        .section-title span { position: relative; display: inline-block; }
-        .section-title span::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 4px; background: var(--accent); border-radius: 10px; }
-
-        .selection-card { background: var(--white); padding: 40px; border-radius: 25px; box-shadow: var(--shadow-md); margin-bottom: 50px; position: relative; }
-        .selection-card h3 { font-size: 1.5rem; text-align: center; margin-bottom: 30px; color: var(--primary); }
-        
+        .selection-card { background: var(--white); padding: 40px; border-radius: 25px; box-shadow: var(--shadow-md); margin-bottom: 50px; }
         .step-container { display: none; animation: fadeIn 0.4s ease-out; }
-        .active { display: block; }
+        .step-container.active { display: block; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 25px; }
-        .opt-btn { background: #f1f5f9; border: 1px solid transparent; padding: 18px 15px; border-radius: 12px; cursor: pointer; text-align: center; font-weight: 600; font-size: 0.95rem; color: var(--primary); transition: var(--transition); display: flex; align-items: center; justify-content: center; min-height: 80px;}
-        .opt-btn:hover { border-color: var(--primary); background: var(--accent-light); color: var(--primary); transform: translateY(-3px); }
-        .opt-btn.category-btn { font-size: 1.1rem; padding: 25px; background: var(--primary-light); color: white;}
-        .opt-btn.category-btn:hover { background: var(--accent); color: var(--primary); }
+        .opt-btn { background: #f1f5f9; padding: 18px 15px; border-radius: 12px; cursor: pointer; text-align: center; font-weight: 600; transition: var(--transition); display: flex; align-items: center; justify-content: center; min-height: 80px; border: 1px solid transparent; }
+        .opt-btn:hover { border-color: var(--primary); background: var(--accent-light); }
+        .opt-btn.category-btn { background: var(--primary-light); color: white; }
 
-        .back-btn { margin-bottom: 25px; display: inline-flex; align-items: center; color: var(--primary); cursor: pointer; font-weight: 600; font-size: 1rem; border: none; background: none; }
-        .back-btn:hover { color: var(--accent); }
-        .back-btn i { margin-right: 8px; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 30px; }
-        .product-card { border: 1px solid #e1e8ed; padding: 40px; border-radius: 20px; text-align: center; background: var(--white); transition: var(--transition); position: relative; overflow: hidden; }
-        .product-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.15); transform: translateY(-5px); border-color: transparent; }
-        .product-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--primary); }
-        .product-card.bundle::before { background: var(--success); }
-        .product-card h3 { color: var(--primary); font-size: 1.4rem; margin-bottom: 15px; }
-        .product-card p { font-size: 0.9rem; color: var(--text-main); margin-bottom: 20px; min-height: 50px; }
-        .price { font-size: 2.2rem; color: var(--success); font-weight: 800; margin-bottom: 25px; display: block; }
-        .price small { font-size: 1rem; color: #7b8c9d; font-weight: 400; }
-        .buy-link { display: block; background: var(--primary); color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
-        .buy-link:hover { background: var(--accent); color: var(--primary); }
-
-        .how-it-works { background: var(--white); padding: 50px; border-radius: 25px; margin: 60px 0; box-shadow: var(--shadow-sm); border: 2px solid #e1e8ed; text-align: center; }
-        .how-it-works h3 { font-size: 1.8rem; margin-bottom: 40px; color: var(--primary); }
-        .step-list { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; }
-        .step-item { flex: 1; min-width: 250px; background: #f9fbff; padding: 30px; border-radius: 15px; position: relative; }
-        .step-num { background: var(--accent); color: var(--primary); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 700; font-size: 1.2rem; }
-        .step-item h5 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; }
-        .step-item p { font-size: 0.9rem; color: var(--text-main); }
-
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(16,42,67,0.7); backdrop-filter: blur(8px); animation: fadeIn 0.3s; }
-        .modal-content { background: var(--white); margin: 5% auto; padding: 40px; border-radius: 25px; width: 90%; max-width: 500px; box-shadow: 0 15px 50px rgba(0,0,0,0.3); animation: slideDown 0.5s ease-out; position: relative; }
-        .modal-content h3 { text-align: center; color: var(--primary); font-size: 1.6rem; margin-bottom: 25px; }
-        form input, form select { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #d1d9e0; border-radius: 10px; font-size: 0.95rem; background: #f9fbff; }
-        form input:focus, form select:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px var(--accent-light); }
-        .form-btn { width: 100%; background: var(--success); color: white; padding: 16px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; margin-top: 15px; font-size: 1.1rem; }
-        .form-btn:hover { background: #219150; }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(16,42,67,0.7); backdrop-filter: blur(8px); }
+        .modal-content { background: var(--white); margin: 5% auto; padding: 40px; border-radius: 25px; width: 90%; max-width: 500px; position: relative; }
         .close-modal { position: absolute; top: 20px; right: 25px; font-size: 1.5rem; cursor: pointer; color: #999; }
 
-        footer { background: var(--primary); color: #c3d1e0; padding: 60px 5% 30px; margin-top: 80px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-bottom: 1px solid #243b53; padding-bottom: 40px; margin-bottom: 30px; }
-        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col li { list-style: none; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; }
-        .footer-col li i { color: var(--accent); margin-right: 10px; font-size: 1rem; }
-        .footer-col p { font-size: 0.9rem; margin-bottom: 15px; }
-        .footer-bottom { text-align: center; font-size: 0.8rem; color: #859bb3; }
-
+        footer { background: var(--primary); color: #c3d1e0; padding: 40px 5%; text-align: center; margin-top: 60px; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .container { padding: 30px 15px; }
-            .selection-card { padding: 25px; }
-            .step-list { flex-direction: column; }
-            .hero-dev-tag { font-size: 1.1rem; padding: 8px 20px; }
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="maintenance-header">
-        ⚠️ Currently Under Maintenance / Development
-    </div>
-
-    <div class="disclaimer-banner">
-        ⚠️ महत्वपूर्ण सूचना: यह वेबसाइट MJPRU बरेली से आधिकारिक रूप से संबद्ध नहीं है। यह छात्रों के लिए एक निजी पोर्टल है।
-    </div>
+    <div class="maintenance-header">⚠️ Under Maintenance / Development</div>
+    <div class="disclaimer-banner">⚠️ MJPRU बरेली से आधिकारिक रूप से संबद्ध नहीं है।</div>
 
     <nav>
-        <img src="logo.jpg" alt="BackseBacho Logo" class="logo-img">
-        <div class="nav-contact">
-            <b>SUPPORT CENTRE</b>
-            backsebacho@gmail.com
-        </div>
+        <img src="logo.jpg" alt="Logo" class="logo-img">
+        <div class="nav-contact"><b>SUPPORT</b><br>backsebacho@gmail.com</div>
     </nav>
 
     <header class="hero">
-        <div class="hero-dev-tag">Under Maintenance / Development</div>
-        <h1>BackseBacho Study Portal</h1>
-        <p> सभी कोर्सेज के लिए सबसे सटीक नोट्स, Solve PYQs और एग्जाम मैटेरियल एक ही जगह पर।</p>
+        <div class="hero-dev-tag">Coming Soon</div>
+        <h1>BackseBacho Portal</h1>
+        <p>Premium Handwritten Notes & Solved PYQs for MJPRU Students.</p>
         <a href="#selection-area" class="hero-btn">Explore Courses</a>
     </header>
 
-    <div class="container">
-        
-        <section class="info-section">
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <span class="icon">✍️</span>
-                    <h4>Simplified Notes</h4>
-                    <p>Toppers और MJPRU Experts द्वारा तैयार किए गए आसान नोट्स जो एग्जाम में हेल्प करेंगे।</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">📝</span>
-                    <h4>Solved PYQs</h4>
-                    <p>पिछले 5 साल के MJPRU एग्जाम पेपर्स का कम्पलीट सलूशन, सभी कोर्सेज के लिए।</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">📦</span>
-                    <h4>Exam Bundle</h4>
-                    <p>Notes, PYQs aur Vocational Prep jo back se bachayega.</p>
-                </div>
-            </div>
+    <div class="container" id="selection-area">
+        <section class="feature-grid">
+            <div class="feature-card"><span>✍️</span><h4>Notes</h4><p>Simplified MJPRU Expert Notes.</p></div>
+            <div class="feature-card"><span>📝</span><h4>PYQs</h4><p>Last 5 Year Solved Papers.</p></div>
+            <div class="feature-card"><span>📦</span><h4>Bundles</h4><p>Complete Exam Preparation.</p></div>
         </section>
 
-        <h2 class="section-title" id="selection-area"><span>Select Your Course</span></h2>
-        
         <div class="selection-card">
-            
             <div id="step-main" class="step-container active">
-                <h3>Kaunsi Category Hai Bhai?</h3>
+                <h3 style="text-align:center">Kaunsi Category Hai Bhai?</h3>
                 <div class="grid">
-                    <div class="opt-btn category-btn" onclick="renderSubjects('Technical')"><span class="icon">⚙️</span> Technical (B.Tech/MBA)</div>
-                    <div class="opt-btn category-btn" onclick="renderSubjects('UG')"><span class="icon">🎓</span> Undergraduate (UG)</div>
-                    <div class="opt-btn category-btn" onclick="renderSubjects('PG')"><span class="icon">📚</span> Postgraduate (PG)</div>
-                    <div class="opt-btn category-btn" onclick="renderSubjects('Vocational')"><span class="icon">💻</span> Vocational/NEP</div>
-                    <div class="opt-btn category-btn" onclick="renderSubjects('Other')"><span class="icon">🏛️</span> Law & Other Courses</div>
+                    <div class="opt-btn category-btn" onclick="renderSubjects('Technical')">Technical</div>
+                    <div class="opt-btn category-btn" onclick="renderSubjects('UG')">Undergraduate (UG)</div>
+                    <div class="opt-btn category-btn" onclick="renderSubjects('PG')">Postgraduate (PG)</div>
+                    <div class="opt-btn category-btn" onclick="renderSubjects('Vocational')">Vocational</div>
+                    <div class="opt-btn category-btn" onclick="renderSubjects('Other')">Law & Others</div>
                 </div>
             </div>
 
             <div id="step-subject" class="step-container">
-                <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back to Categories</button>
-                <h3 id="subject-title">Subject Select Karein</h3>
+                <button onclick="goBack()" style="border:none; background:none; cursor:pointer; color:var(--primary); font-weight:700;"><i class="fas fa-arrow-left"></i> BACK</button>
+                <h3 id="subject-title" style="text-align:center">Subjects</h3>
                 <div class="grid" id="subject-buttons"></div>
             </div>
 
             <div id="step-sem" class="step-container">
-                <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back to Subjects</button>
-                <h3 id="sem-title">Semester Choose Karein</h3>
+                <button onclick="goBack()" style="border:none; background:none; cursor:pointer; color:var(--primary); font-weight:700;"><i class="fas fa-arrow-left"></i> BACK</button>
+                <h3 id="sem-title" style="text-align:center">Semesters</h3>
                 <div class="grid" id="sem-buttons"></div>
             </div>
 
             <div id="step-checkout" class="step-container">
-                <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back to Semesters</button>
-                <h2 id="final-path" style="text-align:center; color:var(--primary); margin-bottom:30px;"></h2>
-                
-                <div class="product-grid">
-                    <div class="product-card">
-                        <h3>Handwritten Notes</h3>
-                        <p>NEP Syllabus के अनुसार कम्पलीट थ्योरी + इम्पोर्टेन्ट टॉपिक्स।</p>
-                        <span class="price">₹99 <small>/per sem</small></span>
-                        <div class="buy-link" onclick="openLeadForm('Full Notes')">Buy Notes Bundle</div>
-                    </div>
-                    <div class="product-card">
-                        <h3>Solved PYQs</h3>
-                        <p>पिछले 5 साल के Solved Papers, Exam Pattern के साथ।</p>
-                        <span class="price">₹29 <small>/per sem</small></span>
-                        <div class="buy-link" onclick="openLeadForm('PYQs')">Buy PYQ Bundle</div>
-                    </div>
-                    <div class="product-card bundle">
-                        <h3>All-in-One Bundle</h3>
-                        <p>Notes + PYQs + Vocational Prep (Recommended for Exams).</p>
-                        <span class="price">₹39 <small>/per sem</small></span>
-                        <div class="buy-link" style="background:var(--success)" onclick="openLeadForm('Full Bundle')">Get Best Deal</div>
-                    </div>
+                <button onclick="goBack()" style="border:none; background:none; cursor:pointer; color:var(--primary); font-weight:700;"><i class="fas fa-arrow-left"></i> BACK</button>
+                <h2 id="final-path" style="text-align:center; margin-bottom:20px;"></h2>
+                <div style="text-align:center; padding:30px; border:2px dashed #ddd; border-radius:15px;">
+                    <p>Bhai, material upload ho raha hai. Launching May 2026!</p>
                 </div>
             </div>
         </div>
-
-        <div class="how-it-works">
-            <h3>Download Kaise Karein? <small>(3 Simple Steps)</small></h3>
-            <div class="step-list">
-                <div class="step-item">
-                    <span class="step-num">1</span>
-                    <h5>Select Course</h5>
-                    <p>Apna Subject aur Semester select karke option chunein.</p>
-                </div>
-                <div class="step-item">
-                    <span class="step-num">2</span>
-                    <h5>Submit & Pay</h5>
-                    <p>Details bharein aur Razorpay se secure payment karein.</p>
-                </div>
-                <div class="step-item">
-                    <span class="step-num">3</span>
-                    <h5>Get Access</h5>
-                    <p>Payment ke baad screenshot hamare Support mail par bhejein.</p>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <div id="leadModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeLeadForm()">&times;</span>
-            <h3>Submit Details</h3>
+            <h3 style="text-align:center">Submit Details</h3>
             <form action="https://formspree.io/f/mnjlygza" method="POST" id="detailsForm">
-                <input type="text" name="Student_Name" placeholder="Kaun ho bhai? (Full Name)" required>
-                <input type="email" name="Email" placeholder="Sahi Email Address" required>
-                <input type="tel" name="WhatsApp_Number" placeholder="Active WhatsApp Number" required>
-                
-                <input type="text" name="Course_Branch" id="custDept" readonly style="background:#f1f5f9; color:#666;">
-                <input type="text" name="Semester" id="custSem" readonly style="background:#f1f5f9; color:#666;">
-                <input type="hidden" name="Item_Type" id="custItem">
-
-                <select name="Year" required>
-                    <option value="">Select Year</option>
-                    <option value="1">1st Year</option>
-                    <option value="2">2nd Year</option>
-                    <option value="3">3rd Year</option>
-                    <option value="4">4th Year</option>
-                </select>
-                <p style="font-size: 0.75rem; color: #777; margin-bottom: 15px; text-align: center;">Note: Proceed dabane ke baad automatic Payment open hoga.</p>
-                <button type="submit" class="form-btn">Proceed to Payment (₹19)</button>
+                <input type="text" name="Student_Name" placeholder="Full Name" required style="width:100%; padding:12px; margin:10px 0;">
+                <input type="email" name="Email" placeholder="Email" required style="width:100%; padding:12px; margin:10px 0;">
+                <input type="tel" name="WhatsApp" placeholder="WhatsApp Number" required style="width:100%; padding:12px; margin:10px 0;">
+                <input type="text" name="Branch" id="custDept" readonly style="width:100%; padding:12px; background:#eee;">
+                <button type="submit" style="width:100%; background:var(--success); color:white; padding:15px; border:none; border-radius:10px; margin-top:10px; cursor:pointer;">Proceed</button>
             </form>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>BackseBacho Hub</h4>
-                <p> छात्रों को गुणवत्तापूर्ण अध्ययन सामग्री प्रदान करने का एक छोटा सा प्रयास। Exam ki taiyari ab hogi smart!</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <li><i class="fas fa-file-pdf"></i> MJPRU NEP Syllabus</li>
-                <li><i class="fas fa-university"></i> Technical AEDP</li>
-                <li><i class="fas fa-tools"></i> Vocational SLCT</li>
-                <li><i class="fas fa-bullhorn"></i> University Updates</li>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Support</h4>
-                <li><i class="fas fa-envelope"></i> backsebacho@gmail.com</li>
-                <li><i class="fas fa-map-marker-alt"></i> Bareilly, Uttar Pradesh</li>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 BackseBacho Portal | Designed for Students, by Students.</p>
-            <p style="margin-top: 5px; font-size: 0.7rem;">Not affiliated with Mahatma Jyotiba Phule Rohilkhand University.</p>
-        </div>
-    </footer>
+    <footer><p>© 2026 BackseBacho Portal | Designed for MJPRU Students</p></footer>
 
     <script>
         const subjectData = {
-            'Technical': ['B.Tech (Chemical)', 'B.Tech (CSIT) New', 'B.Tech (CSIT) Old', 'B.Tech (Mechanical)', 'B.Tech (EE)', 'B.Tech (EC)', 'B.Tech (EI)', 'B.Pharma', 'MBA (Mktg)', 'MBA (Gen)', 'MCA', 'M.Pharma', 'M.Tech (EE)'],
-            'UG': ['B.A. (Hindi)', 'B.A. (English)', 'B.A. (History)', 'B.A. (Sociology)', 'B.A. (Economics)', 'B.A. (Psychology)', 'B.A. (Philosophy)', 'B.Sc. (Physics)', 'B.Sc. (Chemistry)', 'B.Sc. (Maths)', 'B.Sc. (Zoology)', 'B.Sc. (Botany)', 'B.Sc. (Home Science)', 'B.Com.', 'BBA Retail', 'BCA', 'B.Sc. (Agriculture)', 'B.Sc. (Microbiology)', 'B.Sc. (Biotech)'],
-            'PG': ['M.A. (Hindi)', 'M.A. (English)', 'M.A. (History)', 'M.A. (Economics)', 'M.A. (Sanskrit)', 'M.A. (Political Science)', 'M.A. (Sociology)', 'M.A. (Education)', 'M.Sc. (Physics)', 'M.Sc. (Chemistry)', 'M.Sc. (Maths)', 'M.Sc. (Zoology)', 'M.Sc. (Botany)', 'M.Com.', 'M.S.W.'],
-            'Vocational': ['Digital Marketing', 'Tally Basics', 'MS-Office Automation', 'Fashion Designing', 'Cooking', 'Gym Trainer', 'Vyavharik Hindi', 'Communicative English'],
-            'Other': ['LL.B. (3 Year)', 'B.A.LL.B. (5 Year)', 'B.Ed.', 'M.Ed.', 'B.Lib.', 'Yoga', 'Mass Com', 'PGDCA']
+            'Technical': ['B.Tech (Chemical)', 'B.Tech (CSIT)', 'B.Tech (Mechanical)', 'B.Tech (EE)', 'B.Pharma', 'MBA', 'MCA'],
+            'UG': ['B.A.', 'B.Sc.', 'B.Com.', 'BBA', 'BCA', 'B.Sc. (Ag)'],
+            'PG': ['M.A.', 'M.Sc.', 'M.Com.', 'M.S.W.'],
+            'Vocational': ['Digital Marketing', 'Tally', 'MS-Office', 'Fashion'],
+            'Other': ['LL.B.', 'B.A.LL.B.', 'B.Ed.']
         };
 
         let historyStack = ['step-main'];
-        let selectedData = { branch: "", sem: "", item: "" };
+        let selectedCategory = "";
 
         function renderSubjects(category) {
+            selectedCategory = category;
             const grid = document.getElementById('subject-buttons');
             grid.innerHTML = "";
             subjectData[category].forEach(s => {
@@ -359,61 +192,42 @@
         function goToStep(stepId) {
             document.querySelectorAll('.step-container').forEach(s => s.classList.remove('active'));
             document.getElementById(stepId).classList.add('active');
-            historyStack.push(stepId);
+            if(historyStack[historyStack.length -1] !== stepId) historyStack.push(stepId);
         }
 
         function goBack() {
             if (historyStack.length > 1) {
                 historyStack.pop();
-                let prevStep = historyStack[historyStack.length - 1];
+                const prevStep = historyStack[historyStack.length - 1];
                 document.querySelectorAll('.step-container').forEach(s => s.classList.remove('active'));
                 document.getElementById(prevStep).classList.add('active');
             }
         }
 
         function selectBranch(name) {
-            selectedData.branch = name;
             const grid = document.getElementById('sem-buttons');
             grid.innerHTML = "";
-            let semCount = (name.includes('B.Tech') || name.includes('LL.B. 5')) ? 8 : 6;
-            if(categoryIncludes(name, 'Vocational')) semCount = 1;
+            let semCount = 6; // Default UG
+            if(selectedCategory === 'Technical') semCount = 8;
+            if(selectedCategory === 'PG') semCount = 4;
+            if(selectedCategory === 'Vocational') semCount = 1;
+            
             for(let i=1; i<=semCount; i++) {
-                grid.innerHTML += `<div class="opt-btn" onclick="showProducts('Semester ${i}')">Semester ${i}</div>`;
+                grid.innerHTML += `<div class="opt-btn" onclick="showCheckout('${name}', ${i})">Semester ${i}</div>`;
             }
             document.getElementById('sem-title').innerText = name + " - Semesters";
             goToStep('step-sem');
         }
 
-        function categoryIncludes(subject, category) {
-            return subjectData[category].includes(subject);
-        }
-
-        function showProducts(sem) {
-            selectedData.sem = sem;
-            document.getElementById('final-path').innerText = `${selectedData.branch} | ${sem}`;
+        function showCheckout(branch, sem) {
+            document.getElementById('final-path').innerText = branch + " | Semester " + sem;
             goToStep('step-checkout');
         }
 
-        function openLeadForm(item) {
-            selectedData.item = item;
-            document.getElementById('custDept').value = selectedData.branch;
-            document.getElementById('custSem').value = selectedData.sem;
-            document.getElementById('custItem').value = item;
-            document.getElementById('leadModal').style.display = "block";
+        function closeLeadForm() { document.getElementById('leadModal').style.display = "none"; }
+        window.onclick = function(event) { 
+            if (event.target == document.getElementById('leadModal')) closeLeadForm(); 
         }
-
-        function closeLeadForm() {
-            document.getElementById('leadModal').style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('leadModal')) {
-                closeLeadForm();
-            }
-        }
-
-        const form = document.getElementById('detailsForm');
-        form.onsubmit = function() { setTimeout(function() { window.location.href = "https://razorpay.me/@rohit285"; }, 1000); };
     </script>
 </body>
 </html>
