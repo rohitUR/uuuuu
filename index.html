@@ -28,45 +28,38 @@
         a { text-decoration: none; transition: var(--transition); }
         ul { list-style: none; }
 
-        /* --- PROFESSIONAL RED COMING SOON OVERLAY (ADDED BY REQUEST) --- */
-        .coming-soon-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(16, 42, 67, 0.4); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .notice-card {
-            background: #ffffff;
-            max-width: 550px;
-            width: 100%;
-            padding: 50px 40px;
-            border-radius: 25px;
+        /* Integrated Maintenance Style */
+        .maintenance-header {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-            border-top: 10px solid #e74c3c; /* Professional Red highlight */
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
         }
-        .status-tag { color: #e74c3c; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 15px; }
-        .notice-card h1 { color: #102a43; font-size: 2.2rem; margin-bottom: 15px; font-weight: 800; line-height: 1.2; }
-        .notice-card p { color: #334e68; font-size: 1.05rem; margin-bottom: 25px; }
-        .dev-loader { width: 100%; height: 6px; background: #eee; border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
-        .dev-progress { width: 75%; height: 100%; background: #e74c3c; animation: progressMove 2.5s infinite ease-in-out; }
-        .launch-btn { background: #102a43; color: white; padding: 12px 25px; border-radius: 50px; font-size: 0.85rem; display: inline-block; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
 
-        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        @keyframes progressMove { 0% { width: 40%; } 50% { width: 90%; } 100% { width: 40%; } }
-        /* --- END OF NEW ADDITIONS --- */
+        .hero-dev-tag {
+            display: inline-block;
+            background: rgba(231, 76, 60, 0.2);
+            border: 2px solid #e74c3c;
+            color: #fff;
+            padding: 10px 30px;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            animation: blinker 1.5s linear infinite;
+        }
 
-        /* Original Disclaimer Banner */
+        @keyframes blinker {
+            50% { opacity: 0.5; }
+        }
+
+        /* Modern Disclaimer Banner */
         .disclaimer-banner { background: #fffbe6; color: #d35400; padding: 12px 5%; font-size: 0.85rem; font-weight: 600; text-align: center; border-bottom: 1px solid #ffe58f; position: relative; z-index: 1001; }
         
         /* Premium Navigation */
@@ -77,10 +70,10 @@
         .nav-contact b { display: block; font-size: 0.9rem; color: var(--text-dark); }
 
         /* Elegant Hero Section */
-        .hero { padding: 80px 5% 100px; background: linear-gradient(135deg, #102a43, #1e3799); color: white; text-align: center; position: relative; }
+        .hero { padding: 100px 5% 120px; background: linear-gradient(135deg, #102a43, #1e3799); color: white; text-align: center; position: relative; }
         .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; background: var(--light); clip-path: polygon(100% 100%, 0% 100%, 0 0); }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: white; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: white; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto 30px; }
         .hero-btn { display: inline-block; background: var(--accent); color: var(--primary); padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 1rem; box-shadow: var(--shadow-md); }
         .hero-btn:hover { background: white; transform: translateY(-3px); }
 
@@ -106,19 +99,16 @@
         .step-container { display: none; animation: fadeIn 0.4s ease-out; }
         .active { display: block; }
         
-        /* Modern Grid Options */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 25px; }
         .opt-btn { background: #f1f5f9; border: 1px solid transparent; padding: 18px 15px; border-radius: 12px; cursor: pointer; text-align: center; font-weight: 600; font-size: 0.95rem; color: var(--primary); transition: var(--transition); display: flex; align-items: center; justify-content: center; min-height: 80px;}
         .opt-btn:hover { border-color: var(--primary); background: var(--accent-light); color: var(--primary); transform: translateY(-3px); }
         .opt-btn.category-btn { font-size: 1.1rem; padding: 25px; background: var(--primary-light); color: white;}
         .opt-btn.category-btn:hover { background: var(--accent); color: var(--primary); }
-        .opt-btn .icon { margin-right: 10px; font-size: 1.3rem; }
 
         .back-btn { margin-bottom: 25px; display: inline-flex; align-items: center; color: var(--primary); cursor: pointer; font-weight: 600; font-size: 1rem; border: none; background: none; }
         .back-btn:hover { color: var(--accent); }
         .back-btn i { margin-right: 8px; }
         
-        /* Elegant Product Grid */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 30px; }
         .product-card { border: 1px solid #e1e8ed; padding: 40px; border-radius: 20px; text-align: center; background: var(--white); transition: var(--transition); position: relative; overflow: hidden; }
         .product-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.15); transform: translateY(-5px); border-color: transparent; }
@@ -131,7 +121,6 @@
         .buy-link { display: block; background: var(--primary); color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
         .buy-link:hover { background: var(--accent); color: var(--primary); }
 
-        /* Modern How it Works */
         .how-it-works { background: var(--white); padding: 50px; border-radius: 25px; margin: 60px 0; box-shadow: var(--shadow-sm); border: 2px solid #e1e8ed; text-align: center; }
         .how-it-works h3 { font-size: 1.8rem; margin-bottom: 40px; color: var(--primary); }
         .step-list { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; }
@@ -140,7 +129,6 @@
         .step-item h5 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; }
         .step-item p { font-size: 0.9rem; color: var(--text-main); }
 
-        /* Sleek Lead Form Modal */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(16,42,67,0.7); backdrop-filter: blur(8px); animation: fadeIn 0.3s; }
         .modal-content { background: var(--white); margin: 5% auto; padding: 40px; border-radius: 25px; width: 90%; max-width: 500px; box-shadow: 0 15px 50px rgba(0,0,0,0.3); animation: slideDown 0.5s ease-out; position: relative; }
         .modal-content h3 { text-align: center; color: var(--primary); font-size: 1.6rem; margin-bottom: 25px; }
@@ -150,7 +138,6 @@
         .form-btn:hover { background: #219150; }
         .close-modal { position: absolute; top: 20px; right: 25px; font-size: 1.5rem; cursor: pointer; color: #999; }
 
-        /* Advanced Footer */
         footer { background: var(--primary); color: #c3d1e0; padding: 60px 5% 30px; margin-top: 80px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-bottom: 1px solid #243b53; padding-bottom: 40px; margin-bottom: 30px; }
         .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
@@ -159,7 +146,6 @@
         .footer-col p { font-size: 0.9rem; margin-bottom: 15px; }
         .footer-bottom { text-align: center; font-size: 0.8rem; color: #859bb3; }
 
-        /* Animations & Media Queries */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
@@ -168,21 +154,15 @@
             .container { padding: 30px 15px; }
             .selection-card { padding: 25px; }
             .step-list { flex-direction: column; }
+            .hero-dev-tag { font-size: 1.1rem; padding: 8px 20px; }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- PROFESSIONAL COMING SOON OVERLAY -->
-    <div class="coming-soon-overlay">
-        <div class="notice-card">
-            <span class="status-tag">Under Development</span>
-            <h1>The Wait is <br><span style="color:#e74c3c">Almost Over</span></h1>
-            <p>We are currently finalizing premium study materials for MJPRU students. Notes, Solved PYQs, and Exam Bundles will be live shortly. Feel free to explore our portal layout in the background!</p>
-            <div class="dev-loader"><div class="dev-progress"></div></div>
-            <div class="launch-btn">Estimated Launch: May 2026</div>
-        </div>
+    <div class="maintenance-header">
+        ⚠️ Currently Under Maintenance / Development
     </div>
 
     <div class="disclaimer-banner">
@@ -198,6 +178,7 @@
     </nav>
 
     <header class="hero">
+        <div class="hero-dev-tag">Under Maintenance / Development</div>
         <h1>BackseBacho Study Portal</h1>
         <p> सभी कोर्सेज के लिए सबसे सटीक नोट्स, Solve PYQs और एग्जाम मैटेरियल एक ही जगह पर।</p>
         <a href="#selection-area" class="hero-btn">Explore Courses</a>
@@ -220,7 +201,7 @@
                 <div class="feature-card">
                     <span class="icon">📦</span>
                     <h4>Exam Bundle</h4>
-                    <p>Notes, PYQs और Vocational कोर्सेज का कम्पलीट पैकेज जो बैक से बचाएगा।</p>
+                    <p>Notes, PYQs aur Vocational Prep jo back se bachayega.</p>
                 </div>
             </div>
         </section>
@@ -394,7 +375,7 @@
             selectedData.branch = name;
             const grid = document.getElementById('sem-buttons');
             grid.innerHTML = "";
-            let semCount = (name.includes('B.Tech') || name.includes('LL.B. 5')) ? 8 : (name.includes('M.A') || name.includes('M.Sc') || name.includes('MBA')) ? 4 : 6;
+            let semCount = (name.includes('B.Tech') || name.includes('LL.B. 5')) ? 8 : 6;
             if(categoryIncludes(name, 'Vocational')) semCount = 1;
             for(let i=1; i<=semCount; i++) {
                 grid.innerHTML += `<div class="opt-btn" onclick="showProducts('Semester ${i}')">Semester ${i}</div>`;
